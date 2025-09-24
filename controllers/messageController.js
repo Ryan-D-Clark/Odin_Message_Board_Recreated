@@ -2,6 +2,7 @@ const db = require("../db/queries")
 
 async function getMessages(req,res){
     let messages = await db.getAllMessages()
+    console.log("Testing")
     console.log("Messages: ", messages)
     res.render("index")
 }
