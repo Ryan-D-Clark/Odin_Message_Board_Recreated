@@ -8,8 +8,9 @@ async function getMessages(req,res){
 }
 
 async function getMessage(req,res){
-    console.log(req.params.id)
-    res.render("message")
+    let message = await db.getMessage(req.params.id)
+    console.log(req.params.id, "req id")
+    res.render("message", {message:message})
 }
 
 async function createMessageGet(req,res){
