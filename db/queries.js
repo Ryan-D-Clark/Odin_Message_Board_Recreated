@@ -8,5 +8,3 @@ async function getAllMessages(){
 module.exports = {
     getAllMessages
 }
-
-

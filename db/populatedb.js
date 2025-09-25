@@ -1,5 +1,5 @@
 #! /usr/bin/env node
-
+const { Client } = require("pg");
 const pool = require("./pool")
 const dotenv = require('dotenv')
 dotenv.config()
@@ -19,12 +19,24 @@ VALUES
 `;
 
 async function main() {
-  await pool.connect();
-  await pool.query(SQL);
-  console.log("done");
-};
+  console.log("Seeding...");
+  const client = new Client({
+    connectionString: process.env.RENDER_URL || process.env.DATABASE_URL,
+    ssl: process.env.RENDER_URL ? true : false
 
+  });
+  try {
+    await client.connect();
+    console.log("Connected to database.");
+    await client.query(SQL);
+  } catch (error) {
+    console.error("Error occured:", error);
+  } finally {
+    await client.end();
+    console.log("Done.");
+  }
+}
 
-main()
+main();
 
 
