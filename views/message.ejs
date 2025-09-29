@@ -7,6 +7,15 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+    <div id="singular-message-container">
+            <div class="message">
+                    <div class="message-icon"><%=message[0]["username"][0]%></div>
+                    <div class="message-username"><%=message[0]["username"]%></div>
+                    <div class="message-text"><%=message[0]["message"]%></div>
+                    <div class="message-date"><%=message[0]["date"].toLocaleString().split(",")[0]%></div>
+                    <a class="message-button" href="/" >Back</a>
+            </div>
+    </div>
 
 
 <%- include("../views/partials/footer"); %>

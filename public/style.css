@@ -1,9 +1,9 @@
 :root{
-    --primary: #2a828c;
-    --secondary: #59d0e5;
+    --primary: #0247FE;
+    --secondary: #DBE5FF;
     --border: #b4b4b4;
-    --text-color: #ffffff;
-    --link-color: #d5d5d5;
+    --text-color: #00113D;
+    --link-color: #678FFE;
 }
 
 * {
@@ -19,7 +19,7 @@ body{
 #navbar{
     display: flex;
     flex-direction: row;
-    height: 4vh;
+    min-height: 4vh;
     padding: 5px;
     background-color: var(--primary);
     border-bottom: 1px solid var(--border);
@@ -79,7 +79,71 @@ body{
     background-color: var(--secondary);
 }
 
+#messages-container{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 10vh auto;
+    background-color: var(--primary);
+    padding: 10px;
+    border-radius: 5px;
+    gap: 15px;
+}
 
+.message{
+    display: grid;
+    padding: 5px;
+    grid-template-columns: 50px auto;
+    grid-template-areas: 
+    "icon username username username . button"
+    "icon  text text text text ."
+    ". . . . . date";
+    background-color: var(--secondary);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+
+}
+
+.message-icon{
+    grid-area: icon;
+    grid-template: 0.5fr;
+    justify-self: center;
+    align-self: center;
+    border: 0.6rem solid var(--primary);
+    background-color: var(--primary);
+    border-radius: 100%;
+}
+
+.message-username{
+    grid-area: username;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.message-text{
+    grid-area: text;
+    font-size: 0.8rem;
+}
+
+.message-date{
+    grid-area: date;
+    text-align: right;
+    font-size: 0.5rem;
+}
+
+.message-button{
+    grid-area: button;
+    padding: 2px;
+    font-size: 0.7rem;
+    text-align: center;
+    justify-self: right;
+    align-self: center;
+    text-decoration: none;
+    background-color: var(--primary);
+    width: 2rem;
+    border: 1px solid var(--border);
+    color: var(--link-color);
+}
 
 .nav-link{
     color: var(--link-color);
@@ -106,4 +170,19 @@ body{
 #github-link{
     text-decoration: none;
     font-weight: bold;
+}
+
+#singular-message-container{
+    width: 60%;
+    margin: 10vh auto;
+    background-color: var(--primary);
+    padding: 10px;
+    border-radius: 2%;
+}
+
+#error-message{
+    position: relative;
+    text-align: center;
+    margin: auto;
+    color: red;
 }

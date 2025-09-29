@@ -16,6 +16,18 @@
         </div>
     </nav>
 
+    <div id="messages-container">
+        <%messages.forEach((item)=>{%>
+            <div class="message">
+                <div class="message-icon"><%=item["username"][0]%></div>
+                <div class="message-username"><%=item["username"]%></div>
+                <div class="message-text"><%=item["message"]%></div>
+                <div class="message-date"><%=item["date"].toLocaleString().split(",")[0]%></div>
+                <a class="message-button" href="/message/<%=item["id"]%>" >View</a>
+            </div>
+        <%});%> %>
+    </div>
+
 <%- include("../views/partials/footer"); %>
 </body>
 </html>

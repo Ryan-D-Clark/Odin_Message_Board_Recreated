@@ -13,18 +13,31 @@
             <a href="/" class="nav-link">Back</a>
         </div>
     </nav>
-
     <main>
+    <%if (typeof errors == "string") { %>
         <div id="form-container">
             <div id="form-title">Post Your Message </div>
             <form id="message-form" action="/new" method="post">
                 <label for="username">Username</label><br>
-                <input type="text" name="username" id="username" placeholder="Bilbo"><br>
+                <input type="text" name="username" id="username" placeholder="Bilbo" value="<%=username%>"><br>
+                <label for="message">Enter Message</label><br>
+                <input type="text" name="message" id="message" placeholder="Enter your message here" value="<%=message%>"><br>
+                <button id="submit-button" type="submit">Submit</button>
+                <%- include("../views/partials/error"); %>
+            </form>
+        </div>
+    <% }else{%>
+        <div id="form-container">
+            <div id="form-title">Post Your Message </div>
+            <form id="message-form" action="/new" method="post">
+                <label for="username">Username</label><br>
+                <input type="text" name="username" id="username" placeholder="Bilbo" value=""><br>
                 <label for="message">Enter Message</label><br>
                 <input type="text" name="message" id="message" placeholder="Enter your message here"><br>
                 <button id="submit-button" type="submit">Submit</button>
             </form>
         </div>
+        <% }%>
     </main>
 <%- include("../views/partials/footer"); %>
 </body>

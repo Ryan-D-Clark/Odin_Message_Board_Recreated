@@ -8,7 +8,8 @@ const SQL = `
 CREATE TABLE IF NOT EXISTS messages (
   id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
   username VARCHAR ( 255 ),
-  message VARCHAR ( 255 )
+  message VARCHAR ( 255 ),
+  date DATE NOT NULL DEFAULT CURRENT_DATE
 );
 
 INSERT INTO messages (username, message) 
